@@ -1,16 +1,26 @@
-# Setup backend
+# 🚀 Setup Backend
 
-```shell
+Follow these steps to set up and run the backend server.
+
+## 📌 Prerequisites
+Ensure you have the following installed:
+- **Node.js** (Latest LTS version recommended)
+- **npm** (Comes with Node.js)
+
+## 📥 Install Dependencies
+Run the following command:
+```sh
 npm install
 ```
 
-Duplikat file .env.example kemudian rename menjadi .env dan isi dengan credentials anda
-
-```shell
+## ⚙️ Configure Environment Variables
+Duplicate the `.env.example` file and rename it to `.env`, then fill in your credentials:
+```sh
 cp .env.example .env
 ```
 
-```javascript
+### Example `.env` file:
+```ini
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 
@@ -20,36 +30,34 @@ RECLAIM_SECRET=
 APP_PORT=
 ```
 
-# Untuk run server development
-
-```shell
+## ▶️ Run the Development Server
+```sh
 npm run dev
 ```
 
-# Untuk run server production
-
-```shell
+## 🚀 Run in Production Mode
+```sh
 npm run start
 ```
 
-# Get Access Token Github
+---
 
-## Endpoint :
+# 🔑 Get GitHub Access Token
 
+## 📍 Endpoint:
+```sh
+GET http://localhost:<APP_PORT>/getAccessToken
 ```
-GET http://localhost:<app port>/getAccessToken
-```
-## Query :
-```
+
+## 📩 Query Parameters:
+```json
 {
-  code: <session code>
+  "code": "<session_code>"
 }
 ```
+`session_code` is obtained when the user successfully authorizes the app.
 
-session code di dapat dari ketika user berhasil mengauthorize apps
-
-## Response :
-
+## ✅ Example Response:
 ```json
 {
   "access_token": "gho_16C7e42F292c6912E7710c838347Ae178B4a",
@@ -58,65 +66,79 @@ session code di dapat dari ketika user berhasil mengauthorize apps
 }
 ```
 
-# Generate proof
+---
 
-## Endpoint :
+# 🔒 Generate Proof
 
+## 📍 Endpoint:
+```sh
+GET http://localhost:<APP_PORT>/generate-proof
 ```
-GET http://localhost:<app port>/generate-proof
-```
 
-## Headers :
+## 🔑 Headers:
 ```json
 {
   "Authorization": "Bearer <accessToken>"
 }
 ```
 
-## Query :
-
+## 📩 Query Parameters:
 ```json
 {
-  "url": <url-pull-request>
+  "url": "<url-pull-request>"
 }
 ```
 
-## Response :
-
+## ✅ Example Response:
 ```json
 {
   "prProofData": {
     "claimInfo": {
-      "context": (id owner pull request, login(username yg melakukan pull request), node_id, merged status(true|false)),
-      "parameters": <parameters>,
-      "provider": <provider>
+      "context": {
+        "id": "<owner_pull_request_id>",
+        "login": "<username>",
+        "node_id": "<node_id>",
+        "merged_status": true
+      },
+      "parameters": "<parameters>",
+      "provider": "<provider>"
     },
     "signedClaim": {
       "claim": {
-        "epoch": <epoch>,
-        "identifier": <identifier>,
-        "owner": <owner>,
-        "timestampS": <timestampS>
+        "epoch": "<epoch>",
+        "identifier": "<identifier>",
+        "owner": "<owner>",
+        "timestampS": "<timestampS>"
       },
-      "signatures": [<signatures>]
+      "signatures": ["<signatures>"]
     }
   },
   "userProofData": {
     "claimInfo": {
-      "context": (id owner pull request, login(username yg melakukan pull request), node_id),
-      "parameters": <parameters>,
-      "provider": <provider>
+      "context": {
+        "id": "<owner_pull_request_id>",
+        "login": "<username>",
+        "node_id": "<node_id>"
+      },
+      "parameters": "<parameters>",
+      "provider": "<provider>"
     },
     "signedClaim": {
       "claim": {
-        "epoch": <epoch>,
-        "identifier": <identifier>,
-        "owner": <owner>,
-        "timestampS": <timestampS>
+        "epoch": "<epoch>",
+        "identifier": "<identifier>",
+        "owner": "<owner>",
+        "timestampS": "<timestampS>"
       },
-      "signatures": [<signatures>]
+      "signatures": ["<signatures>"]
     }
   }
 }
-
 ```
+
+---
+
+## 🎯 Conclusion
+You have successfully set up the backend for **wearelazydev**. If you encounter any issues, check the `.env` file or refer to the documentation.
+
+Happy coding! 🚀
