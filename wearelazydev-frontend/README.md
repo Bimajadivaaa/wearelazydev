@@ -18,7 +18,7 @@ cd frontend
 ## 📦 Install Dependencies
 Run the following command to install all necessary dependencies:
 ```sh
-npm install
+pnpm install
 ```
 
 ## ⚙️ Set Up Environment Variables
@@ -41,7 +41,7 @@ NEXT_PUBLIC_ZK_BACKEND_GET_ACCESS_TOKEN=
 ## ▶️ Run the Development Server
 Once everything is set up, start the development server:
 ```sh
-npm run dev
+pnpm dev
 ```
 This will launch the application, and you should see the frontend running on:
 ```
@@ -52,23 +52,24 @@ http://localhost:3000
 ### Build the Application for Production
 If you want to build the project for deployment:
 ```sh
-npm run build
+pnpm build
 ```
 
 ### Run in Production Mode
 To start the application in production mode after building:
 ```sh
-npm run start
+pnpm start
 ```
 
 ### Linting & Formatting
 Ensure your code follows best practices by running:
 ```sh
-npm run lint
-npm run format
+pnpm lint
+pnpm format
 ```
 
 ## 🎯 Conclusion
 Congratulations! 🎉 You have successfully set up and run the frontend locally. If you encounter any issues, check the `.env` values or refer to the project documentation.
 
 Happy coding! 🚀
+
