@@ -1,0 +1,38 @@
+{
+    "prProofData": {
+      "claimInfo": {
+        "context": "{\"extractedParameters\":{\"id\":\"93313454\",\"login\":\"Bimajadivaaa\",\"merged\":\"true\",\"node_id\":\"U_kgDOBY_Zrg\"},\"providerHash\":\"0xad18c665e13443d9e0ad768e38c564e034f1093e16ff92c5c03867702040b832\"}",
+        "parameters": "{\"body\":\"\",\"headers\":{\"Accept\":\"application/vnd.github+json\",\"Content-Type\":\"application/json\",\"User-Agent\":\"reclaim/0.0.1\",\"X-GitHub-Api-Version\":\"2022-11-28\"},\"method\":\"GET\",\"responseMatches\":[{\"type\":\"regex\",\"value\":\"merged\\\":(?<merged>true|false)\"},{\"type\":\"regex\",\"value\":\"\\\"user\\\":\\\\s*{\\\\s*\\\"login\\\":\\\\s*\\\"(?<login>[^\\\"]+)\\\",\\\\s*\\\"id\\\":\\\\s*(?<id>\\\\d+),\\\\s*\\\"node_id\\\":\\\\s*\\\"(?<node_id>[^\\\"]+)\\\"\"}],\"responseRedactions\":[],\"url\":\"https://api.github.com/repos/wearelazydev/repo-tester/pulls/5\"}",
+        "provider": "http"
+      },
+      "signedClaim": {
+        "claim": {
+          "epoch": 1,
+          "identifier": "0xff707376622301be1295526edad61908eef5590cead2bb672f7e0fbdb6409809",
+          "owner": "0x2226327a10ff60c6374f705650e5d476e3c8f08a",
+          "timestampS": 1739763427
+        },
+        "signatures": [
+          "0x342a27751748e6c3c21048eea439c44582dc9a2eab0662e0e99716b211e7d4114f301bc4b8ef8c1d8730837d193d93eda0d6b4a7b643172295d344c3654f7bd21c"
+        ]
+      }
+    },
+    "userProofData": {
+      "claimInfo": {
+        "context": "{\"extractedParameters\":{\"id\":\"93313454\",\"login\":\"Bimajadivaaa\",\"node_id\":\"U_kgDOBY_Zrg\"},\"providerHash\":\"0xf9b76c081edf4886e8fcba5a3150b5b9860093846f98850034044676f13552e9\"}",
+        "parameters": "{\"body\":\"\",\"headers\":{\"Accept\":\"application/vnd.github+json\",\"Content-Type\":\"application/json\",\"User-Agent\":\"reclaim/0.0.1\",\"X-GitHub-Api-Version\":\"2022-11-28\"},\"method\":\"GET\",\"responseMatches\":[{\"type\":\"regex\",\"value\":\"\\\"login\\\":\\\\s*\\\"(?<login>[^\\\"]+)\\\",\\\\s*\\\"id\\\":\\\\s*(?<id>\\\\d+),\\\\s*\\\"node_id\\\":\\\\s*\\\"(?<node_id>[^\\\"]+)\\\"\"}],\"responseRedactions\":[],\"url\":\"https://api.github.com/user\"}",
+        "provider": "http"
+      },
+      "signedClaim": {
+        "claim": {
+          "epoch": 1,
+          "identifier": "0xd94da21ec550d7801b6fa36d4ebb2cec4ffba4b10fd04f31e77a324b8967a4e6",
+          "owner": "0x2226327a10ff60c6374f705650e5d476e3c8f08a",
+          "timestampS": 1739763431
+        },
+        "signatures": [
+          "0xddadf872881f98b918f100c9c0b2cfca7d38f520a079ef8806a809d22dc8adbb2777dd079de29021881cb72dfba0eee8000b9d4b0f1e3e33c107e8c78a5223bf1c"
+        ]
+      }
+    }
+  }
