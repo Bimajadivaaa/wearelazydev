@@ -1,4 +1,4 @@
-# wearelazydev
+# wearelazydev.
 
 ![Project Image](https://socialify.git.ci/Bimajadivaaa/wearelazydev/image?custom_description=Wearelazydev+rewards+for+Pull+Requests+%26+bug+fixes+using+zkTLS+for+secure%2C+private+validation.&description=1&language=1&name=1&owner=1&pattern=Circuit+Board&theme=Dark)
 
