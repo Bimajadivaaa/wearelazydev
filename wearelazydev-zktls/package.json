@@ -1,0 +1,27 @@
+{
+  "name": "proof-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "download:zk-files": "node node_modules/@reclaimprotocol/zk-symmetric-crypto/lib/scripts/download-files",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Andreas Sibua",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@reclaimprotocol/attestor-core": "^3.1.1",
+    "@reclaimprotocol/js-sdk": "^2.2.1",
+    "@reclaimprotocol/zk-fetch": "^0.3.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
