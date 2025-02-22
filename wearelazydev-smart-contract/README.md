@@ -1,66 +1,114 @@
-## Foundry
+# 🛠 Deploy & Test Smart Contracts using Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This guide provides step-by-step instructions on how to **deploy, test, and verify** the smart contracts in the **wearelazydev** project using [Foundry](https://github.com/foundry-rs/foundry).
 
-Foundry consists of:
+---
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## 📌 Prerequisites
+Ensure you have the following installed:
+- **Foundry** → Install it using:
+  ```sh
+  curl -L https://foundry.paradigm.xyz | bash
+  foundryup
+  ```
+- **Git** → Clone the repository
+- **Ethereum Node Provider** (e.g., Alchemy, Infura, or Anvil for local testing)
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+## 📥 Clone the Repository
+```sh
+git clone https://github.com/wearelazydev/smart-contracts.git
+cd smart-contracts
 ```
 
-### Test
+---
 
-```shell
-$ forge test
+## 🔧 Install Dependencies
+```sh
+forge install
 ```
 
-### Format
+---
 
-```shell
-$ forge fmt
+## ⚙️ Configure Environment Variables
+Create a `.env` file and add the required variables:
+```sh
+touch .env
+```
+Add the following values:
+```env
+PRIVATE_KEY=
+ETHERSCAN_API_KEY=
+RPC_URL=
+```
+Replace with your actual credentials:
+- **PRIVATE_KEY** → Your deployer wallet's private key
+- **ETHERSCAN_API_KEY** → API key for contract verification
+- **RPC_URL** → Ethereum RPC URL (Sepolia, Mainnet, or other networks)
+
+---
+
+## 🚀 Compile Smart Contracts
+```sh
+forge build
+```
+This will compile the contracts located in the `src/` folder.
+
+---
+
+## 🧪 Run Tests
+Run unit tests using Foundry:
+```sh
+forge test
+```
+For detailed logs, use:
+```sh
+forge test -vvvv
 ```
 
-### Gas Snapshots
+---
 
-```shell
-$ forge snapshot
+## 🔥 Deploy Smart Contracts
+Deploy contracts to a testnet (e.g., Sepolia) using:
+```sh
+forge script scripts/Deploy.s.sol --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast
+```
+If you are deploying locally using Anvil:
+```sh
+anvil &
+forge script scripts/Deploy.s.sol --rpc-url http://127.0.0.1:8545 --private-key $PRIVATE_KEY --broadcast
 ```
 
-### Anvil
+---
 
-```shell
-$ anvil
+## ✅ Verify Smart Contracts
+After deploying, verify the contract on Etherscan:
+```sh
+forge verify-contract --chain-id 11155111 --num-of-optimizations 200 --watch <DEPLOYED_CONTRACT_ADDRESS> <CONTRACT_PATH>:<CONTRACT_NAME> --etherscan-api-key $ETHERSCAN_API_KEY
+```
+Example for `IssuesClaim.sol`:
+```sh
+forge verify-contract --chain-id 11155111 --num-of-optimizations 200 --watch 0xab104a8271eb37f2c244130afbc574a80dcd5c09 src/IssuesClaim.sol:IssuesClaim --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
-### Deploy
+---
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+## 📌 Smart Contracts in this Repository
+| Contract Name       | Description |
+|--------------------|-------------|
+| **IssuesClaim.sol** | Handles issue bounties and developer claims |
+| **LazyToken.sol**   | ERC-20 token used for bounty rewards ($LAZY) |
+| **SwapToken.sol**   | Enables swapping between ETH and $LAZY |
 
-### Cast
+---
 
-```shell
-$ cast <subcommand>
-```
+## 📜 License
+This project is licensed under the **MIT License**.
 
-### Help
+---
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## 🎯 Conclusion
+Congratulations! 🎉 You have successfully deployed, tested, and verified the smart contracts for **wearelazydev** using Foundry.
+
+If you encounter issues, check the `.env` values or refer to Foundry's official [documentation](https://book.getfoundry.sh/). 🚀
