@@ -15,8 +15,8 @@ wearelazydev is a cutting-edge platform where developers earn rewards through Pu
 ### Manual Claiming by Owner Bounty
 Traditional bounty platforms have Manual Claiming by Owner Bounty. wearelazydev automates this by allowing developers to have full access of the rewards.
 
-### Lack of Transparency
-Many platforms lack clear reward distribution tracking. wearelazydev leverages blockchain for full transparency and fairness.
+### Security
+Traditional bug bounty platforms face privacy risks, delayed payments, trust issues, and data exposure. Developers often need to reveal personal information, face slow and opaque reward processes, and risk their findings being exploited. A secure, decentralized, and trustless solution is needed to protect researchers and ensure fair, instant rewards. 
 
 ### Delayed Claiming
 Slow manual verifications cause delays in reward distribution. With zkTLS, wearelazydev ensures instant validation and payouts.
