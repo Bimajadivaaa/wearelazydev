@@ -79,4 +79,3 @@ Slow manual verifications cause delays in reward distribution. With zkTLS, weare
 
 ## 📜 License
 **MIT License**
-
