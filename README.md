@@ -26,7 +26,7 @@ Slow manual verifications cause delays in reward distribution. With zkTLS, weare
 - **Documentation:** [https://bimajdiva.gitbook.io/wearelazydev](https://bimajdiva.gitbook.io/wearelazydev)
 - **Organization:** [https://github.com/wearelazydev](https://github.com/wearelazydev)
 - **Video Demonstration:**  [https://www.youtube.com/watch?v=V_jil8utLTU](https://www.youtube.com/watch?v=V_jil8utLTU)
-- **Presentation Slides** [https://shorturl.at/ppnzV](https://shorturl.at/ppnzV)
+- **Presentation Slides:** [https://shorturl.at/ppnzV](https://shorturl.at/ppnzV)
 
 ## 🔄 Flow
 ### **Owner Repository Flow**
