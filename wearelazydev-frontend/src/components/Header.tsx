@@ -52,7 +52,7 @@ export default function Header() {
         </nav>
 
         <nav>
-          <ul className="hidden md:flex gap-5 items-center font-medium">
+          <ul className="hidden md:flex gap-5 items-center font-medium text-sm">
             <li className="hover:text-gray-500">
               <Link href="/issues/create">Create Issues</Link>
             </li>
@@ -61,6 +61,9 @@ export default function Header() {
             </li>
             <li className="hover:text-gray-500">
               <Link href="/swap">Swap Token</Link>
+            </li>
+            <li className="hover:text-gray-500">
+              <Link href="/leaderboard">Leaderboard</Link>
             </li>
             <li className="hover:text-gray-500">
               <Link href="https://bimajdiva.gitbook.io/wearelazydev" target="blank">Documentation</Link>
@@ -89,6 +92,9 @@ export default function Header() {
               </li>
               <li>
                 <Link href="/swap">Swap Token</Link>
+              </li>
+              <li>
+                <Link href="/leaderboard">Leaderboard</Link>
               </li>
               <li>
                 <Link href="https://bimajdiva.gitbook.io/wearelazydev" target="blank">Documentation</Link>

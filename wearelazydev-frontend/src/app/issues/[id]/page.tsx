@@ -14,6 +14,7 @@ import { useClaimRewards } from "@/lib/hooks/use-claim-rewards";
 import { toast } from "sonner";
 import { ethers } from "ethers";
 import { Loader2 } from "lucide-react";
+import React from "react";
 
 export default function Page() {
   const params = useParams();
@@ -54,6 +55,7 @@ export default function Page() {
     isApprovalPending,
     isApprovalConfirming,
     usedPRLinksData,
+    isClaimSuccess,
   } = useClaimRewards(pullRequestUrl);
 
   const isAllValid =
@@ -84,6 +86,12 @@ export default function Page() {
       });
     }
   };
+
+  React.useEffect(() => {
+    if (isClaimSuccess) {
+      toast.success("Claim $Lazy Token success!");
+    }
+  });
 
   if (isLoading) {
     return (
@@ -188,15 +196,19 @@ export default function Page() {
             </div>
           </div>
         ) : (
-            <Button size="lg" className="font-bold p-4 gap-[-10]" onClick={loginWithGithub}>
-              <Image
-                src={"/images/github.png"}
-                alt="github"
-                width={50}
-                height={50}
-              />
-              Connect with GitHub
-            </Button>
+          <Button
+            size="lg"
+            className="font-bold p-4 gap-[-10]"
+            onClick={loginWithGithub}
+          >
+            <Image
+              src={"/images/github.png"}
+              alt="github"
+              width={50}
+              height={50}
+            />
+            Connect with GitHub
+          </Button>
         )}
         <hr />
 

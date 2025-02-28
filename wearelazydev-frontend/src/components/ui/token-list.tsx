@@ -22,11 +22,13 @@ import Image from "next/image";
 const ETH_ADDRESS = "0x0000000000000000000000000000000000000000";
 const LAZY_ADDRESS = "0x3924d7fe9f8a07753fcdc7192b36c58c238b61a6";
 
+
 const tokens = [
     { 
         value: ETH_ADDRESS, 
         label: "ETH",
         image: "/images/ethereum-eth-logo.png"
+
     },
     { 
         value: LAZY_ADDRESS, 
@@ -75,7 +77,7 @@ export function TokenList({ selectedAddress, onSelect }: TokenListProps) {
                                 {tokens.map((token) => (
                                     <CommandItem
                                         key={token.value}
-                                        value={token.value}
+                                        value={token.label}
                                         onSelect={() => {
                                             onSelect(token.value);
                                             setOpen(false);

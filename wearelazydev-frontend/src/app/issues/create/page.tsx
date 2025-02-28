@@ -107,6 +107,7 @@ export default function Page() {
               value={formData.title}
               onChange={handleInputChange}
               required
+              placeholder="Enter your issue title"
             />
           </div>
 
@@ -117,6 +118,7 @@ export default function Page() {
               value={formData.repoLink}
               onChange={handleInputChange}
               required
+              placeholder="Enter your Github Repository"
             />
           </div>
 
@@ -127,6 +129,7 @@ export default function Page() {
               value={formData.description}
               onChange={handleInputChange}
               required
+               placeholder="Enter your Description"
             />
           </div>
 
@@ -180,14 +183,15 @@ export default function Page() {
             Title Issue <br /> <strong>{formData.title || "Not set"}</strong>
           </h1>
           <p>
-            Link Repo <br /> <strong>{formData.repoLink || "Not set"}</strong>
+            Link Repository <br /> <strong>{formData.repoLink || "Not set"}</strong>
           </p>
+          <span className="font-bold bg-slate-500 px-2 text-white">*Make sure your repository is public.</span>
           <p>
             Description <br />{" "}
             <strong>{formData.description || "Not set"}</strong>
           </p>
           <p>
-            Reward <br /> <strong>{formData.bountyAmount} LAZY</strong>
+            Reward <br /> <strong>{formData.bountyAmount ? formData.bountyAmount : '0'} $LAZY</strong>
           </p>
           <p>
             Deadline <br />{" "}

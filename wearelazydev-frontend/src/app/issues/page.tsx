@@ -10,9 +10,9 @@ import { ethers } from "ethers";
 import { useWallet } from "@/lib/hooks/use-wallet";
 import WalletConnect from "@/components/ui/WalletConnect";
 import { Loader2 } from "lucide-react";
-
+import { useSearchParams } from "next/navigation";
 export default function Page() {
-  const { allIssue = [], isFetchingData } = useGetAllIssue() as { 
+  const { allIssue = [], isFetchingData } = useGetAllIssue() as {
     allIssue: Issue[];
     isFetchingData: boolean;
   };
@@ -32,6 +32,15 @@ export default function Page() {
     )}`;
   };
 
+  const searchParams = useSearchParams();
+  const code = searchParams.get("code");
+
+  React.useEffect(() => {
+    if (code) {
+      localStorage.setItem("code", code);
+    }
+  }, [code]);
+
   return (
     <main>
       <div className="bg-primary text-primary-foreground p-10 space-y-5 rounded">
@@ -47,7 +56,7 @@ export default function Page() {
         {address ? (
           isFetchingData ? (
             <div className="col-span-2 flex justify-center items-center min-h-[200px] space-x-3">
-              <Loader2 className="h-8 w-8 animate-spin"/> 
+              <Loader2 className="h-8 w-8 animate-spin" />
               <p>Loading issues data..</p>
             </div>
           ) : allIssue.length > 0 ? (
@@ -85,7 +94,9 @@ export default function Page() {
           )
         ) : (
           <div className="flex items-center justify-center col-span-2 flex-col gap-5 mt-10">
-            <h1 className="font-bold text-4xl text-center">Connect Your Wallet</h1>
+            <h1 className="font-bold text-4xl text-center">
+              Connect Your Wallet
+            </h1>
             <p className="text-center text-white-500 mt-2">
               Please Connect your wallet to see all issue.
             </p>

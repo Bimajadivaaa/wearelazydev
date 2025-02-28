@@ -7,6 +7,8 @@ import { useSwapToken } from "@/lib/hooks/use-swap-token";
 import React from "react";
 import { ethers } from "ethers";
 import { Loader2 } from "lucide-react";
+import { useWallet } from "@/lib/hooks/use-wallet";
+import { toast } from "sonner";
 
 const ETH_ADDRESS = "0x0000000000000000000000000000000000000000";
 const LAZY_ADDRESS = "0x3924d7fe9f8a07753fcdc7192b36c58c238b61a6";
@@ -29,6 +31,8 @@ export default function SwapPage() {
     loadingCalculate,
   } = useSwapToken(selectedToken.sell, selectedToken.buy, amount);
 
+  const { address } = useWallet();
+
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^\d*\.?\d*$/.test(value)) {
@@ -49,6 +53,7 @@ export default function SwapPage() {
 
   React.useEffect(() => {
     if (isSwapSuccess) {
+      toast.success("Swap Token success!")
       setAmount("");
     }
   }, [isSwapSuccess]);
@@ -120,15 +125,19 @@ export default function SwapPage() {
           onClick={handleSwap}
           disabled={!amount || isLoading}
         >
-          {isLoading ? (
+          {!address ? (
+            <div className="flex items-center space-x-2 disabled cursor-not-allowed">
+              <p className="text-md">Connect your wallet</p>
+            </div>
+          ) : isLoading ? (
             <div className="flex items-center space-x-2">
               <Loader2 className="animate-spin" />
-              <p>Swapping...</p>
+              <p className="text-md">Swapping...</p>
             </div>
           ) : loadingCalculate ? (
             <div className="flex items-center space-x-2">
               <Loader2 className="animate-spin" />
-              <p>Calculating Price...</p>
+              <p className="text-md">Calculating Price...</p>
             </div>
           ) : (
             "Swap"

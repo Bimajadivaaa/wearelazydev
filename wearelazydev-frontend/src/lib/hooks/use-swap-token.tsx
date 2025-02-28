@@ -106,7 +106,7 @@ export const useSwapToken = (
 
   React.useEffect(() => {
     if (swapHash) {
-      toast.success("Swap Token success!", {
+      toast.success("Swap Token initiated!", {
         description: (
           <a
             href={`${SEPOLIA_EXPLORER}${swapHash}`}
